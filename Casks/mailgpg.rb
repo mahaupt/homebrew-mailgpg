@@ -4,7 +4,7 @@
 
 cask "mailgpg" do
   version "0.1.1"
-  sha256 "994163837c1b1e3b7a535193e5d9c50ba8845ebbf2f122d63655f2ffd924b0b7"
+  sha256 "0ddf297b7d57a64d885f1b8a40ec99941c6963ff84aa58943fbf85bd4be0ccc7"
 
   url "https://github.com/mahaupt/mailgpg/releases/download/v#{version}/MailGPG-#{version}.dmg"
   name "MailGPG"
