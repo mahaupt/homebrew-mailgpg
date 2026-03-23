@@ -20,13 +20,6 @@ cask "mailgpg" do
 
   app "MailGPG.app"
 
-  # Install the LaunchAgent so the headless host app starts at login.
-  # The extension (sandboxed) talks to it via XPC for all GPG operations.
-  resource "launchagent" do
-    url "https://raw.githubusercontent.com/mahaupt/mailgpg/main/.github/homebrew/com.mahaupt.mailgpg.plist"
-    sha256 :no_check
-  end
-
   postflight do
     plist_path = "#{Dir.home}/Library/LaunchAgents/com.mahaupt.mailgpg.plist"
     plist_content = <<~XML
