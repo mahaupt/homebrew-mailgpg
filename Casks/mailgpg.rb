@@ -3,8 +3,8 @@
 # Version and sha256 are updated automatically by the release GitHub Action.
 
 cask "mailgpg" do
-  version "0.1.8"
-  sha256 "04b7527d1a9238c9f32764d470ac6a787ca3fbe3b8d16b92f7822703581abe7c"
+  version "0.1.9"
+  sha256 "767b72019f69e80eaecfd8cb7dd1b3f56ff51bce4d8032dce0af0cae8b171aa9"
 
   url "https://github.com/mahaupt/mailgpg/releases/download/v#{version}/MailGPG-#{version}.dmg"
   name "MailGPG"
@@ -63,7 +63,7 @@ cask "mailgpg" do
 
   caveats <<~EOS
     To finish setup, enable the Mail extension:
-      System Settings → Privacy & Security → Extensions → Mail Extensions → MailGPG ✓
+      Mail → Settings → Extensions → MailGPG ✓
 
     Restart Mail if it was already open.
   EOS
