@@ -3,8 +3,8 @@
 # Version and sha256 are updated automatically by the release GitHub Action.
 
 cask "mailgpg" do
-  version "0.1.11"
-  sha256 "807990dfa8521add78598f8b2fbc06c939aa5a7d87c4f98034d835e27eed2d7c"
+  version "0.2.0"
+  sha256 "6c06c766bd2bbd0480854835d499dfe47aea8c0912bcd43e6bb05981659a55d0"
 
   url "https://github.com/mahaupt/mailgpg/releases/download/v#{version}/MailGPG-#{version}.dmg"
   name "MailGPG"
