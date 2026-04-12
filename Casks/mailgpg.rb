@@ -3,16 +3,16 @@
 # Version and sha256 are updated automatically by the release GitHub Action.
 
 cask "mailgpg" do
-  version "0.2.0"
-  sha256 "6c06c766bd2bbd0480854835d499dfe47aea8c0912bcd43e6bb05981659a55d0"
+  version "0.2.1"
+  sha256 "56825ff05ef27a1127f2d6150f89dfdc09d43d1ec743dea700672dcd8b784dde"
 
   url "https://github.com/mahaupt/mailgpg/releases/download/v#{version}/MailGPG-#{version}.dmg"
   name "MailGPG"
   desc "Native macOS Mail extension for GPG email encryption and signing"
   homepage "https://github.com/mahaupt/mailgpg"
 
-  # Minimum macOS version for Mail extensions
-  depends_on macos: ">= :monterey"
+  # Minimum macOS version
+  depends_on macos: ">= :sonoma"
 
   # GPG binary and GUI-compatible pinentry are required for all operations
   depends_on formula: "gnupg"
