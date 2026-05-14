@@ -1,22 +1,18 @@
 # This file is the initial template for the mahaupt/homebrew-mailgpg tap.
-# Copy it to: mahaupt/homebrew-mailgpg/Casks/mailgpg.rb
+# Copy it to: mahaupt/homebrew-mailgpg/Casks/mailgpg-nodeps.rb
 # Version and sha256 are updated automatically by the release GitHub Action.
 
-cask "mailgpg" do
+cask "mailgpg-nodeps" do
   version "0.2.9"
   sha256 "24293e531bbc404062ea6bda2908eeb39749ade4ab1ab76df762fb804fcf6549"
 
   url "https://github.com/mahaupt/mailgpg/releases/download/v#{version}/MailGPG-#{version}.dmg"
   name "MailGPG"
-  desc "Native macOS Mail extension for GPG email encryption and signing"
+  desc "Native macOS Mail extension for GPG email encryption and signing without Homebrew GPG dependencies"
   homepage "https://github.com/mahaupt/mailgpg"
 
   # Minimum macOS version
   depends_on macos: ">= :sonoma"
-
-  # GPG binary and GUI-compatible pinentry are required for all operations
-  depends_on formula: "gnupg"
-  depends_on formula: "pinentry-mac"
 
   app "MailGPG.app"
 
@@ -62,6 +58,9 @@ cask "mailgpg" do
   end
 
   caveats <<~EOS
+    This cask does not install `gnupg` or `pinentry-mac`.
+    Make sure a supported `gpg` binary and GUI pinentry are already installed.
+
     To finish setup, enable the Mail extension:
       Mail → Settings → Extensions → MailGPG ✓
 
