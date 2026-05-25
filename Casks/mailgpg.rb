@@ -3,8 +3,8 @@
 # Version and sha256 are updated automatically by the release GitHub Action.
 
 cask "mailgpg" do
-  version "0.2.9"
-  sha256 "24293e531bbc404062ea6bda2908eeb39749ade4ab1ab76df762fb804fcf6549"
+  version "0.3.0"
+  sha256 "0257d9ef87053082b2d07cd7cc5b91ed3643dcc341db66ca2065a74a5f5452e0"
 
   url "https://github.com/mahaupt/mailgpg/releases/download/v#{version}/MailGPG-#{version}.dmg"
   name "MailGPG"
@@ -21,7 +21,11 @@ cask "mailgpg" do
   app "MailGPG.app"
 
   postflight do
-    plist_path = "#{Dir.home}/Library/LaunchAgents/com.mahaupt.mailgpg.plist"
+    plist_dir = "#{Dir.home}/Library/LaunchAgents"
+    plist_path = "#{plist_dir}/com.mahaupt.mailgpg.plist"
+    
+    FileUtils.mkdir_p(plist_dir)
+
     executable = "#{appdir}/MailGPG.app/Contents/MacOS/MailGPG"
     plist_content = <<~XML
       <?xml version="1.0" encoding="UTF-8"?>
@@ -55,10 +59,13 @@ cask "mailgpg" do
 
   uninstall_postflight do
     plist_path = "#{Dir.home}/Library/LaunchAgents/com.mahaupt.mailgpg.plist"
-    system_command "/bin/launchctl",
-      args: ["bootout", "gui/#{Process.uid}", plist_path],
-      print_stderr: false
-    FileUtils.rm_f(plist_path)
+
+    if File.exist?(plist_path)
+      system_command "/bin/launchctl",
+        args: ["bootout", "gui/#{Process.uid}", plist_path],
+        print_stderr: false
+      FileUtils.rm_f(plist_path)
+    end
   end
 
   caveats <<~EOS
