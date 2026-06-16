@@ -3,8 +3,8 @@
 # Version and sha256 are updated automatically by the release GitHub Action.
 
 cask "mailgpg" do
-  version "0.3.0"
-  sha256 "0257d9ef87053082b2d07cd7cc5b91ed3643dcc341db66ca2065a74a5f5452e0"
+  version "0.3.1"
+  sha256 "969dbd9bf83aca7c0a6d47fb9dee3a139076c1fc4f1d219df33164227dbaba9d"
 
   url "https://github.com/mahaupt/mailgpg/releases/download/v#{version}/MailGPG-#{version}.dmg"
   name "MailGPG"
@@ -12,7 +12,7 @@ cask "mailgpg" do
   homepage "https://github.com/mahaupt/mailgpg"
 
   # Minimum macOS version
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   # GPG binary and GUI-compatible pinentry are required for all operations
   depends_on formula: "gnupg"
